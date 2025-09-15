@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Samples - LibriTTS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 32px;
+            font-weight: 300;
+            border-bottom: 2px solid #3498db;
+            padding: 30px 0 20px 0;
+            margin: 50px 0 40px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        h3 {
+            color: #444;
+            font-style: italic;
+            margin: 40px 0 20px 0;
+            padding: 20px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #007acc;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .text-table-group {
+            margin-bottom: 60px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        table {
+            margin: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px 10px;
+        }
+        td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 10px;
+        }
+        audio {
+            margin: 5px;
+        }
+        .audio-player {
+            width: 200px;
+        }
+        .index-cell {
+            font-weight: bold;
+            background-color: #e8f4f8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Samples: Parallel vs Iterative Sampling</h1>
+    <p>This page contains audio samples for the paper <i>Tradeoffs in parallel vs iterative sampling of speech generation LMs</i>. The text and speakers are randomly chosen. We include samples from seen and unseen speakers.</p>
+
+    <p>For each text/context pair, we include samples from:</p>
+    <ul>
+        <li>A non-frame-stacked model</li>
+        <li>2x-frame-stacked model</li>
+        <li>4x-frame-stacked model</li>
+    </ul>
+
+     <p>For each stacking factor, three model flavors are included:</p>
+     <ul>
+         <li>Without a Local Transformer (parallel sampling of all codebooks)</li>
+         <li>With a MaskGit-based Local Transformer (iterative sampling)</li>
+         <li>With an autoregressive Local Transformer (sequential codebook sampling)</li>
+     </ul>
+     </p>
+     
+        <p>
+            The diagram below shows the speedup benefits of frame stacking.
+        </p>
+        <img src="speedup.png" alt="Speedup Analysis" style="width: 60%; max-width: 800px; height: auto; border: 1px solid #ddd; border-radius: 8px;">
+     </div>
+
+    <h2>LibriTTS - Seen Speakers</h2>
+    <div class="text-table-group">
+        <h3>"Then Mary Taylor, whose conscience was uncomfortable, said:"</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_12.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"Its depth remained invariable, still four, or at most five, fathoms; and although its bottom was assiduously dredged, it was only to prove it barren of marine production of any type."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_16.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"All the fingers and thumbs of the girl's hands had been carefully formed and stuffed and stitched at the edges, with gold plates at the ends to serve as finger nails."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_22.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"He allowed them to glow and fade, hue after hue: sunrise gold, the russet and green of apple orchards, azure of waves, the grey fringed fleece of clouds."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_48.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"Also, a draft on futurity, sometimes honored, but generally extended."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_67.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"The instinct of workmanship is present in all men, and asserts itself even under very adverse circumstances."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_70.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"You observe that the scratch on that table is slight at one side, but deepens in the direction of the bedroom door."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_92.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"Time was, sir, when I was butler to old Sir Jabez Gilchrist, this young gentleman's father. When he was ruined I came to the college as servant, but I never forgot my old employer because he was down in the world."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_93.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"Had the telegraph been invented in the days of ancient Rome, would the romans have accepted it, or have stoned Wheatstone? So thinking, I resolved that I was before my age, and that I must pay the allotted penalty."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_172.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"This shocking news reached the ears of her parents, whom Dona Estafania had concealed in another room that they might make their appearance at the right moment."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/context_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__No_Local_Transformer/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_MaskGit/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_1__Local_Transformer_AR/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/context_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__No_Local_Transformer/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_MaskGit/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_2__Local_Transformer_AR/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/context_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__No_Local_Transformer/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_MaskGit/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/seen/Stack_4__Local_Transformer_AR/predicted_audio_176.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin: 80px 0;">
+        <hr style="margin: 0; border: none; height: 2px; background: linear-gradient(to right, transparent, #007acc, transparent);">
+    </div>
+    
+    <h2>LibriTTS - Unseen Speakers</h2>
+    <div class="text-table-group">
+        <h3>"Little by little, however, the latter became hemmed and bound in the meshes of the various devices and proceedings which the territorial officials evolved from the bogus laws."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_31.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"With forms which must be ranked as undoubted species, a perfect series exists from those which are absolutely sterile when crossed, to those which are almost or completely fertile."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_50.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"He took no notice of her; he looked at me, but as if, instead of me, he saw what he spoke of."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_69.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"After his visit I told Esprit to take me to the Palais Royal, and I left him at the gates."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_75.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"I've managed to save something every year, and that with helping my three sisters now and then, and tiding poor Cousin Mike over bad seasons."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_84.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"For our part, we reserve to the word its ancient and precise, circumscribed and determined significance, and we restrict slang to slang."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_95.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"Already a North and a South were talked of-why not set up also a West?"</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_107.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"He refused at first to listen to the careful advice; it was repugnant to his liberal nature."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_113.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"It is not logically necessary to the existence of a memory belief that the event remembered should have occurred, or even that the past should have existed at all."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_144.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-table-group">
+        <h3>"saint Paul wrote this epistle because, after his departure from the Galatian churches, Jewish Christian fanatics moved in, who perverted Paul's Gospel of man's free justification by faith in Christ Jesus."</h3>
+        <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+            <thead>
+                <tr>
+                    <th>Stacking Factor</th>
+                    <th>Context Audio</th><th>No Local Transformer</th><th>Local Transformer: MaskGit</th><th>Local Transformer: Autoregressive</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 (no frame stacking)</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/context_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__No_Local_Transformer/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_MaskGit/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_1__Local_Transformer_AR/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>2 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/context_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__No_Local_Transformer/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_MaskGit/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_2__Local_Transformer_AR/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            <tr>
+                <td>4 frames</td>
+                <td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/context_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__No_Local_Transformer/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_MaskGit/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td><td>
+                    <audio controls class="audio-player">
+                        <source src="audio_samples/unseen/Stack_4__Local_Transformer_AR/predicted_audio_154.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // Function to stop all other audio players when one starts playing
+        function stopAllOtherAudio(currentAudio) {
+            const allAudios = document.querySelectorAll('audio');
+            allAudios.forEach(audio => {
+                if (audio !== currentAudio && !audio.paused) {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+            });
+        }
+        
+        // Add event listeners to all audio elements when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const allAudios = document.querySelectorAll('audio');
+            allAudios.forEach(audio => {
+                audio.addEventListener('play', function() {
+                    stopAllOtherAudio(this);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
